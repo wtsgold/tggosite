@@ -13,6 +13,7 @@ const translations = {
     subtitle: '随时随地管理您的数字资产',
     ios: 'iOS 下载',
     android: 'Android 下载',
+    comingSoon: '敬请期待',
     scanQR: '扫描二维码下载',
     version: '版本 2.5.0',
     size: '大小',
@@ -40,6 +41,7 @@ const translations = {
     subtitle: 'Manage your digital assets anywhere',
     ios: 'Download for iOS',
     android: 'Download for Android',
+    comingSoon: 'Coming Soon',
     scanQR: 'Scan QR Code',
     version: 'Version 2.5.0',
     size: 'Size',
@@ -121,13 +123,10 @@ export function DownloadPage({ language }: DownloadPageProps) {
               </div>
             </div>
 
-            <button 
-              onClick={() => handleDownload('ios')}
-              className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all flex items-center justify-center gap-2 font-medium mb-4 active:scale-[0.98]"
-            >
+            <div className="w-full py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-xl flex items-center justify-center gap-2 font-medium mb-4 cursor-not-allowed opacity-75">
               <Apple size={20} />
-              {t.ios}
-            </button>
+              {t.comingSoon}
+            </div>
 
             <div className="border-t border-white/10 pt-4 text-center">
               <div className="bg-white p-3 rounded-lg inline-block mb-2">
@@ -160,13 +159,10 @@ export function DownloadPage({ language }: DownloadPageProps) {
               </div>
             </div>
 
-            <button 
-              onClick={() => handleDownload('android')}
-              className="w-full py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-xl transition-all flex items-center justify-center gap-2 font-medium mb-4 active:scale-[0.98]"
-            >
+            <div className="w-full py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-xl flex items-center justify-center gap-2 font-medium mb-4 cursor-not-allowed opacity-75">
               <Download size={20} />
-              {t.android}
-            </button>
+              {t.comingSoon}
+            </div>
 
             <div className="border-t border-white/10 pt-4 text-center">
               <div className="bg-white p-3 rounded-lg inline-block mb-2">

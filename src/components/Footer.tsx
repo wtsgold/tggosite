@@ -1,4 +1,4 @@
-import { Twitter, Github, Linkedin, MessageCircle } from 'lucide-react';
+import React from 'react';
 
 type Language = 'zh' | 'en';
 
@@ -139,20 +139,6 @@ export function Footer({
           {t.description}
         </p>
         
-        <div className="flex items-center gap-3 mb-6">
-          <a href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-            <Twitter size={16} className="text-gray-400" />
-          </a>
-          <a href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-            <Github size={16} className="text-gray-400" />
-          </a>
-          <a href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-            <Linkedin size={16} className="text-gray-400" />
-          </a>
-          <a href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-            <MessageCircle size={16} className="text-gray-400" />
-          </a>
-        </div>
         
         <div className="border-t border-white/5 pt-4">
           <p className="text-gray-500 text-xs text-center">
