@@ -34,7 +34,7 @@ const translations = {
         { label: '融资目标', value: '$5亿' },
         { label: '工程进度', value: '80%' },
         { label: '预计完工', value: '2027年' },
-        { label: '收益期', value: '10年' }
+        { label: '收益期', value: '永久' }
       ]
     },
     highlights: {
@@ -44,13 +44,13 @@ const translations = {
         '持币即享收益权+消费权双重属性',
         '政府支持、法律合规、审计公开、链上透明',
         '收益来源多元、实物资产可核查',
-        '10年经营收益权+二级市场流通+POS消费燃烧',
+        '永久经营收益权+二级市场流通+POS消费燃烧',
         '代币可用于度假区内再投资（地产建设/格林纳达国籍）'
       ]
     },
     assetSupport: {
       title: '资产支持',
-      subtitle: '格林纳达国家旅游度假区未来10年50%运营净收益权',
+      subtitle: '格林纳达国家旅游度假区永久50%运营净收益权',
       sources: [
         '酒店客房与服务',
         '高尔夫会员与赛事费用',
@@ -77,7 +77,7 @@ const translations = {
       note: '季度发放、链上可查、以USDT形式发放'
     },
     operatingRevenue: {
-      title: '运营分红（2028起永久）',
+      title: '运营分红（营业起至永久）',
       description: '年度运营净利润50%按季度分配',
       features: ['以USDT形式发放', '所有分红链上公开', '智能合约自动执行']
     },
@@ -182,7 +182,7 @@ const translations = {
         { label: 'Funding Goal', value: '$500M' },
         { label: 'Progress', value: '80%' },
         { label: 'Completion', value: '2027' },
-        { label: 'Revenue Period', value: '10 Years' }
+        { label: 'Revenue Period', value: 'Permanent' }
       ]
     },
     highlights: {
@@ -192,13 +192,13 @@ const translations = {
         'Dual benefits: Revenue rights + Consumption rights',
         'Government-backed, legally compliant, audited, on-chain transparent',
         'Diversified revenue sources, verifiable real assets',
-        '10-year revenue rights + Secondary market + POS burn mechanism',
+        'Permanent revenue rights + Secondary market + POS burn mechanism',
         'Tokens usable for resort reinvestment (Real estate/Grenada citizenship)'
       ]
     },
     assetSupport: {
       title: 'Asset Support',
-      subtitle: '50% of net operating revenue for next 10 years',
+      subtitle: 'Permanent 50% of net operating revenue rights',
       sources: [
         'Hotel rooms & services',
         'Golf membership & events',
@@ -225,7 +225,7 @@ const translations = {
       note: 'Quarterly distribution, on-chain verifiable, paid in USDT'
     },
     operatingRevenue: {
-      title: 'Operating Dividends (2028 Onward)',
+      title: 'Operating Dividends (From Opening)',
       description: '50% of annual net profit distributed quarterly',
       features: ['Paid in USDT', 'All dividends on-chain public', 'Smart contract automation']
     },
@@ -606,8 +606,8 @@ export function GranadaDetailPage({ language, onBack }: GranadaDetailPageProps) 
           </h3>
           <p className="text-gray-300 text-sm mb-4 leading-relaxed">
             {language === 'zh' 
-              ? '成为格林纳达国家度假区的共同所有者，分享未来10年的增长红利'
-              : 'Become a co-owner of Grenada National Resort and share 10 years of growth dividends'}
+              ? '成为格林纳达国家度假区的共同所有者，分享永久的增长红利'
+              : 'Become a co-owner of Grenada National Resort and share permanent growth dividends'}
           </p>
           <button
             onClick={() => window.open('http://18.217.8.159/', '_blank')}
