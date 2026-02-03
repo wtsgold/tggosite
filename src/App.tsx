@@ -20,12 +20,12 @@ export default function App() {
   const [language, setLanguage] = useState<Language>('zh');
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
-  // 检测子域名并重定向
+  // 检测 /app 路径并重定向
   useEffect(() => {
-    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
 
-    // 检查是否是 app.tggo.us 子域名
-    if (hostname === 'app.tggo.us') {
+    // 检查是否是 /app 路径
+    if (pathname.startsWith('/app')) {
       // 直接重定向到应用系统
       window.location.href = 'http://18.217.8.159/';
       return;

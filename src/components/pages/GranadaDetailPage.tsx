@@ -610,7 +610,7 @@ export function GranadaDetailPage({ language, onBack }: GranadaDetailPageProps) 
               : 'Become a co-owner of Grenada National Resort and share permanent growth dividends'}
           </p>
           <button
-            onClick={() => window.open('https://app.tggo.us', '_blank')}
+            onClick={() => window.open('/app', '_blank')}
             className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-colors font-medium active:scale-[0.98]"
           >
             {language === 'zh' ? '了解更多' : 'Learn More'}
