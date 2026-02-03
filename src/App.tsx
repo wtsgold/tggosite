@@ -20,15 +20,15 @@ export default function App() {
   const [language, setLanguage] = useState<Language>('zh');
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
-  // 检测子域名并重定向
+  // 检测子域名
+  const [isAppSubdomain, setIsAppSubdomain] = useState(false);
+
   useEffect(() => {
     const hostname = window.location.hostname;
 
     // 检查是否是 app.tggo.us 子域名
     if (hostname === 'app.tggo.us') {
-      // 重定向到应用系统IP
-      window.location.replace('http://18.217.8.159/');
-      return;
+      setIsAppSubdomain(true);
     }
   }, []);
 
@@ -37,15 +37,28 @@ export default function App() {
     window.scrollTo(0, 0);
   };
 
+  // 如果是app子域名，显示iframe
+  if (isAppSubdomain) {
+    return (
+      <div className="min-h-screen w-full">
+        <iframe
+          src="http://18.217.8.159/"
+          className="w-full h-screen border-0"
+          title="TGGO Application"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#0a0e1a]">
-      <Navigation 
-        language={language} 
+      <Navigation
+        language={language}
         setLanguage={setLanguage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
-      
+
       {currentPage === 'home' && <HomePage language={language} setCurrentPage={setCurrentPage} />}
       {currentPage === 'projects' && <AboutPage language={language} setCurrentPage={setCurrentPage} />}
       {currentPage === 'partners' && <PartnersPage language={language} setCurrentPage={setCurrentPage} />}
@@ -57,7 +70,7 @@ export default function App() {
       {currentPage === 'help' && <HelpPage language={language} onBack={() => handlePageChange('home')} />}
       {currentPage === 'privacy' && <PrivacyPage language={language} onBack={() => handlePageChange('home')} />}
       {currentPage === 'terms' && <TermsPage language={language} onBack={() => handlePageChange('home')} />}
-      
+
       <Footer
         language={language}
         onGNRClick={() => handlePageChange('granada')}
