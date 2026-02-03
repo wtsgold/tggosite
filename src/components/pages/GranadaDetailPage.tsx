@@ -609,7 +609,10 @@ export function GranadaDetailPage({ language, onBack }: GranadaDetailPageProps) 
               ? '成为格林纳达国家度假区的共同所有者，分享未来10年的增长红利'
               : 'Become a co-owner of Grenada National Resort and share 10 years of growth dividends'}
           </p>
-          <button className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-colors font-medium active:scale-[0.98]">
+          <button
+            onClick={() => window.open('http://18.217.8.159/', '_blank')}
+            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-colors font-medium active:scale-[0.98]"
+          >
             {language === 'zh' ? '了解更多' : 'Learn More'}
           </button>
         </div>
