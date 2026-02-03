@@ -78,7 +78,7 @@ const translations = {
           },
           {
             question: '分红如何发放？',
-            answer: '2025-2027年为质押收益期，按季度发放；2028-2037年为运营分红期，以USDT形式按季度分配。'
+            answer: '2025年至酒店开业为质押收益期，按季度发放；2028年起永久运营分红，只要持有代币即可享受，以USDT形式按季度分配。'
           },
           {
             question: '代币可以随时卖出吗？',
@@ -168,7 +168,7 @@ const translations = {
           },
           {
             question: 'How are dividends distributed?',
-            answer: '2025-2027: Staking rewards paid quarterly; 2028-2037: Operating dividends distributed quarterly in USDT.'
+            answer: '2025 until hotel opening: Staking rewards paid quarterly; From 2028 onward: Permanent operating dividends as long as you hold tokens, distributed quarterly in USDT.'
           },
           {
             question: 'Can tokens be sold anytime?',

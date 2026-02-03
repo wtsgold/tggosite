@@ -68,7 +68,7 @@ const translations = {
       ]
     },
     stakingRewards: {
-      title: '质押收益（2025-2027）',
+      title: '质押收益（2025-开业）',
       periods: [
         { duration: '3个月', weight: '1.3', apy: '约6%' },
         { duration: '6个月', weight: '1.6', apy: '约8%' },
@@ -77,7 +77,7 @@ const translations = {
       note: '季度发放、链上可查、以USDT形式发放'
     },
     operatingRevenue: {
-      title: '运营分红（2028-2037）',
+      title: '运营分红（2028起永久）',
       description: '年度运营净利润50%按季度分配',
       features: ['以USDT形式发放', '所有分红链上公开', '智能合约自动执行']
     },
@@ -216,7 +216,7 @@ const translations = {
       ]
     },
     stakingRewards: {
-      title: 'Staking Rewards (2025-2027)',
+      title: 'Staking Rewards (2025-Opening)',
       periods: [
         { duration: '3 Months', weight: '1.3', apy: '~6%' },
         { duration: '6 Months', weight: '1.6', apy: '~8%' },
@@ -225,7 +225,7 @@ const translations = {
       note: 'Quarterly distribution, on-chain verifiable, paid in USDT'
     },
     operatingRevenue: {
-      title: 'Operating Dividends (2028-2037)',
+      title: 'Operating Dividends (2028 Onward)',
       description: '50% of annual net profit distributed quarterly',
       features: ['Paid in USDT', 'All dividends on-chain public', 'Smart contract automation']
     },
