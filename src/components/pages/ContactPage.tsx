@@ -1,4 +1,5 @@
-import { Mail, MessageSquare, Phone, MapPin } from 'lucide-react';
+import { Mail, MessageSquare, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { useState } from 'react';
 
 type Language = 'zh' | 'en';
 
@@ -20,7 +21,11 @@ const translations = {
     name: '您的姓名',
     email: '您的邮箱',
     message: '消息内容',
-    submit: '提交留言'
+    submit: '提交留言',
+    submitting: '提交中...',
+    success: '留言已提交成功！',
+    successDesc: '我们会尽快回复您的留言',
+    error: '提交失败，请稍后再试'
   },
   en: {
     title: 'Contact Us',
@@ -35,12 +40,67 @@ const translations = {
     name: 'Your Name',
     email: 'Your Email',
     message: 'Message',
-    submit: 'Send Message'
+    submit: 'Send Message',
+    submitting: 'Submitting...',
+    success: 'Message sent successfully!',
+    successDesc: 'We will reply to your message as soon as possible',
+    error: 'Failed to submit, please try again later'
   }
 };
 
 export function ContactPage({ language }: ContactPageProps) {
   const t = translations[language];
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // 记录留言到控制台（在实际项目中，这里会发送到后端API）
+      const messageData = {
+        timestamp: new Date().toISOString(),
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        language: language
+      };
+
+      console.log('📝 新留言记录:', messageData);
+
+      // 模拟API调用延迟
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // 将留言保存到本地存储
+      const existingMessages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+      existingMessages.push(messageData);
+      localStorage.setItem('contactMessages', JSON.stringify(existingMessages));
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+
+      // 3秒后重置状态
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    } catch (error) {
+      console.error('提交留言失败:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="pt-24 pb-12 px-4 min-h-screen">
@@ -89,35 +149,70 @@ export function ContactPage({ language }: ContactPageProps) {
 
         <div className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl p-6">
           <h3 className="text-xl font-bold text-white mb-6">{t.formTitle}</h3>
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <div>
-              <label className="block text-xs text-gray-400 mb-1.5 ml-1">{t.name}</label>
-              <input 
-                type="text" 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-600 transition-colors"
-                placeholder={t.name}
-              />
+
+          {submitStatus === 'success' ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle size={32} className="text-green-400" />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2">{t.success}</h4>
+              <p className="text-gray-400 text-sm">{t.successDesc}</p>
             </div>
-            <div>
-              <label className="block text-xs text-gray-400 mb-1.5 ml-1">{t.email}</label>
-              <input 
-                type="email" 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-600 transition-colors"
-                placeholder={t.email}
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-gray-400 mb-1.5 ml-1">{t.message}</label>
-              <textarea 
-                rows={4}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-600 transition-colors resize-none"
-                placeholder={t.message}
-              />
-            </div>
-            <button className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-colors">
-              {t.submit}
-            </button>
-          </form>
+          ) : (
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <div>
+                <label className="block text-xs text-gray-400 mb-1.5 ml-1">{t.name}</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-600 transition-colors"
+                  placeholder={t.name}
+                  disabled={isSubmitting}
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-gray-400 mb-1.5 ml-1">{t.email}</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-600 transition-colors"
+                  placeholder={t.email}
+                  disabled={isSubmitting}
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-gray-400 mb-1.5 ml-1">{t.message}</label>
+                <textarea
+                  rows={4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-600 transition-colors resize-none"
+                  placeholder={t.message}
+                  disabled={isSubmitting}
+                />
+              </div>
+              {submitStatus === 'error' && (
+                <div className="bg-red-600/20 border border-red-600/30 rounded-lg p-3">
+                  <p className="text-red-400 text-sm text-center">{t.error}</p>
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-xl font-bold transition-colors"
+              >
+                {isSubmitting ? t.submitting : t.submit}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>

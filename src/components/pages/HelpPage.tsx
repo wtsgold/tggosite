@@ -254,31 +254,6 @@ export function HelpPage({ language, onBack }: HelpPageProps) {
           })}
         </div>
 
-        {/* Contact Support */}
-        <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-600/20 rounded-2xl p-6 mt-8">
-          <div className="flex items-center gap-2 mb-3">
-            <MessageCircle className="text-blue-400" size={20} />
-            <h2 className="text-xl font-bold text-white">{t.contact.title}</h2>
-          </div>
-          <p className="text-gray-300 text-sm mb-4">{t.contact.description}</p>
-
-          <div className="space-y-3">
-            {t.contact.options.map((option, index) => (
-              <div
-                key={index}
-                className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors cursor-pointer"
-              >
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="text-white font-medium text-sm">{option.method}</h3>
-                    <p className="text-gray-400 text-xs">{option.description}</p>
-                  </div>
-                  <span className="text-blue-400 text-xs">{option.time}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
