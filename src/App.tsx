@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { HomePage } from './components/pages/HomePage';
 import { AboutPage } from './components/pages/AboutPage';
@@ -19,6 +19,18 @@ type Page = 'home' | 'projects' | 'partners' | 'download' | 'contact' | 'granada
 export default function App() {
   const [language, setLanguage] = useState<Language>('zh');
   const [currentPage, setCurrentPage] = useState<Page>('home');
+
+  // 检测子域名并重定向
+  useEffect(() => {
+    const hostname = window.location.hostname;
+
+    // 检查是否是 app.tggo.us 子域名
+    if (hostname === 'app.tggo.us') {
+      // 重定向到应用系统IP
+      window.location.replace('http://18.217.8.159/');
+      return;
+    }
+  }, []);
 
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
