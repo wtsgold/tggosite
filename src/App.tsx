@@ -20,15 +20,15 @@ export default function App() {
   const [language, setLanguage] = useState<Language>('zh');
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
-  // 检测子域名
-  const [isAppSubdomain, setIsAppSubdomain] = useState(false);
-
+  // 检测子域名并重定向
   useEffect(() => {
     const hostname = window.location.hostname;
 
     // 检查是否是 app.tggo.us 子域名
     if (hostname === 'app.tggo.us') {
-      setIsAppSubdomain(true);
+      // 直接重定向到应用系统
+      window.location.href = 'http://18.217.8.159/';
+      return;
     }
   }, []);
 
@@ -36,19 +36,6 @@ export default function App() {
     setCurrentPage(page);
     window.scrollTo(0, 0);
   };
-
-  // 如果是app子域名，显示iframe
-  if (isAppSubdomain) {
-    return (
-      <div className="min-h-screen w-full">
-        <iframe
-          src="http://18.217.8.159/"
-          className="w-full h-screen border-0"
-          title="TGGO Application"
-        />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#0a0e1a]">
