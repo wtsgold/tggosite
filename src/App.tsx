@@ -11,16 +11,24 @@ import { APIPage } from './components/pages/APIPage';
 import { HelpPage } from './components/pages/HelpPage';
 import { PrivacyPage } from './components/pages/PrivacyPage';
 import { TermsPage } from './components/pages/TermsPage';
+import { AppRedirectPage } from './components/pages/AppRedirectPage';
 import { Footer } from './components/Footer';
 
 type Language = 'zh' | 'en';
-type Page = 'home' | 'projects' | 'partners' | 'download' | 'contact' | 'granada' | 'docs' | 'api' | 'help' | 'privacy' | 'terms';
+type Page = 'home' | 'projects' | 'partners' | 'download' | 'contact' | 'granada' | 'docs' | 'api' | 'help' | 'privacy' | 'terms' | 'app';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('zh');
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
-  // 注意：/app 路径的重定向由 vercel.json 处理
+  // 检测URL路径并设置对应页面
+  useEffect(() => {
+    const pathname = window.location.pathname;
+
+    if (pathname.startsWith('/app')) {
+      setCurrentPage('app');
+    }
+  }, []);
 
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
@@ -47,6 +55,7 @@ export default function App() {
       {currentPage === 'help' && <HelpPage language={language} onBack={() => handlePageChange('home')} />}
       {currentPage === 'privacy' && <PrivacyPage language={language} onBack={() => handlePageChange('home')} />}
       {currentPage === 'terms' && <TermsPage language={language} onBack={() => handlePageChange('home')} />}
+      {currentPage === 'app' && <AppRedirectPage />}
 
       <Footer
         language={language}

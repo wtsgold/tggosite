@@ -1,11 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/app/:path*",
-      "destination": "http://18.217.8.159/:path*"
-    },
-    {
-      "source": "/((?!api|_next/static|_next/image|favicon.ico|app).*)",
+      "source": "/((?!api|_next/static|_next/image|favicon.ico).*)",
       "destination": "/index.html"
     }
   ]
