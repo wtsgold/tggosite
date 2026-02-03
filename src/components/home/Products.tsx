@@ -5,6 +5,7 @@ type Language = 'zh' | 'en';
 
 interface ProductsProps {
   language: Language;
+  onProjectClick?: (project: string) => void;
 }
 
 const translations = {

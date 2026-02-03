@@ -4,33 +4,82 @@ type Language = 'zh' | 'en';
 
 interface FooterProps {
   language: Language;
+  onGNRClick?: () => void;
+  onDocsClick?: () => void;
+  onAPIClick?: () => void;
+  onHelpClick?: () => void;
+  onContactClick?: () => void;
+  onPrivacyClick?: () => void;
+  onTermsClick?: () => void;
 }
 
 const translations = {
   zh: {
     description: '将真实世界资产代币化，连接传统金融与DeFi',
     products: '项目',
-    productList: ['GNR', 'DBC', 'SLP', 'SPP'],
+    productList: ['GNR'],
     resources: '资源',
-    resourcesList: ['文档', 'API', '博客', '帮助'],
+    resourcesList: ['文档', 'API', '帮助'],
     company: '公司',
-    companyList: ['联系', '职业', '隐私', '条款'],
+    companyList: ['联系', '隐私', '条款'],
     copyright: '© 2026 TGGO Finance'
   },
   en: {
     description: 'Tokenizing real world assets, bridging TradFi and DeFi',
     products: 'Projects',
-    productList: ['GNR', 'DBC', 'SLP', 'SPP'],
+    productList: ['GNR'],
     resources: 'Resources',
-    resourcesList: ['Docs', 'API', 'Blog', 'Help'],
+    resourcesList: ['Docs', 'API', 'Help'],
     company: 'Company',
-    companyList: ['Contact', 'Careers', 'Privacy', 'Terms'],
+    companyList: ['Contact', 'Privacy', 'Terms'],
     copyright: '© 2026 TGGO Finance'
   }
 };
 
-export function Footer({ language }: FooterProps) {
+export function Footer({
+  language,
+  onGNRClick,
+  onDocsClick,
+  onAPIClick,
+  onHelpClick,
+  onContactClick,
+  onPrivacyClick,
+  onTermsClick
+}: FooterProps) {
   const t = translations[language];
+
+  const handleClick = (type: string, defaultAction?: () => void) => {
+    switch(type) {
+      case 'GNR':
+        onGNRClick?.();
+        break;
+      case '文档':
+      case 'Docs':
+        onDocsClick?.();
+        break;
+      case 'API':
+        onAPIClick?.();
+        break;
+      case '帮助':
+      case 'Help':
+        onHelpClick?.();
+        break;
+      case '联系':
+      case 'Contact':
+        onContactClick?.();
+        break;
+      case '隐私':
+      case 'Privacy':
+        onPrivacyClick?.();
+        break;
+      case '条款':
+      case 'Terms':
+        onTermsClick?.();
+        break;
+      default:
+        defaultAction?.();
+    }
+  };
 
   return (
     <footer className="border-t border-white/5 py-8 px-4 mt-12">
@@ -41,9 +90,12 @@ export function Footer({ language }: FooterProps) {
             <ul className="space-y-2">
               {t.productList.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white text-xs transition-colors">
+                  <button
+                    onClick={() => handleClick(item)}
+                    className="text-gray-400 hover:text-white text-xs transition-colors text-left"
+                  >
                     {item}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -54,9 +106,12 @@ export function Footer({ language }: FooterProps) {
             <ul className="space-y-2">
               {t.resourcesList.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white text-xs transition-colors">
+                  <button
+                    onClick={() => handleClick(item)}
+                    className="text-gray-400 hover:text-white text-xs transition-colors text-left"
+                  >
                     {item}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -67,9 +122,12 @@ export function Footer({ language }: FooterProps) {
             <ul className="space-y-2">
               {t.companyList.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white text-xs transition-colors">
+                  <button
+                    onClick={() => handleClick(item)}
+                    className="text-gray-400 hover:text-white text-xs transition-colors text-left"
+                  >
                     {item}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
