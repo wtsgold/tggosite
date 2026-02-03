@@ -323,7 +323,7 @@ export function AboutPage({ language, setCurrentPage }: AboutPageProps) {
 
   // Show Granada detail page if selected
   if (showGranadaDetail) {
-    return <GranadaDetailPage language={language} onBack={() => setShowGranadaDetail(false)} />;
+    return <GranadaDetailPage language={language} onBack={() => { setShowGranadaDetail(false); window.scrollTo(0, 0); }} />;
   }
 
   return (
@@ -486,6 +486,7 @@ export function AboutPage({ language, setCurrentPage }: AboutPageProps) {
                           e.stopPropagation();
                           if (index === 0) {
                             setShowGranadaDetail(true);
+                            window.scrollTo(0, 0);
                           }
                         }}
                         disabled={index !== 0}

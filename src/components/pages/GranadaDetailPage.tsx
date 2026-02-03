@@ -1,7 +1,7 @@
 import { ArrowLeft, Target, Lightbulb, Users, TrendingUp, Calendar, Award, Shield, Globe, Coins, Zap, CheckCircle, FileText, Lock, DollarSign, PieChart, Building2, AlertTriangle, Play } from 'lucide-react';
 import whitepaperCover from 'figma:asset/7677f630f8a09c1d15c6b0ee0749f126e480da7e.png';
 import gnrVideo from '../../assets/gnr.mp4';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 
 type Language = 'zh' | 'en';
@@ -313,6 +313,11 @@ const translations = {
 export function GranadaDetailPage({ language, onBack }: GranadaDetailPageProps) {
   const [showVideo, setShowVideo] = useState(false);
   const t = translations[language];
+
+  // 确保页面加载时滚动到顶部
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="pt-16 pb-20 px-4">
