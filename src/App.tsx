@@ -20,17 +20,7 @@ export default function App() {
   const [language, setLanguage] = useState<Language>('zh');
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
-  // 检测 /app 路径并重定向
-  useEffect(() => {
-    const pathname = window.location.pathname;
-
-    // 检查是否是 /app 路径
-    if (pathname.startsWith('/app')) {
-      // 直接重定向到应用系统
-      window.location.href = 'http://18.217.8.159/';
-      return;
-    }
-  }, []);
+  // 注意：/app 路径的重定向由 vercel.json 处理
 
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
