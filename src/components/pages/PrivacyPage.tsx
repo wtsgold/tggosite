@@ -323,16 +323,6 @@ export function PrivacyPage({ language, onBack }: PrivacyPageProps) {
           </div>
         </div>
 
-        {/* Contact */}
-        <div className="bg-gradient-to-br from-orange-600/10 to-red-600/10 border border-orange-600/20 rounded-2xl p-5 mt-6">
-          <h2 className="text-xl font-bold text-white mb-2">{t.contact.title}</h2>
-          <p className="text-gray-300 text-sm mb-4">{t.contact.description}</p>
-          <div className="space-y-2">
-            {t.contact.info.map((info, index) => (
-              <p key={index} className="text-gray-300 text-sm">{info}</p>
-            ))}
-          </div>
-        </div>
 
         {/* Policy Changes */}
         <div className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl p-5 mt-6">
