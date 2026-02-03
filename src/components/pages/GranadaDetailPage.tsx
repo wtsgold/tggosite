@@ -154,23 +154,11 @@ const translations = {
         { name: 'Grenada Tourism Board', role: '政府合作' }
       ]
     },
-    riskDisclaimer: {
-      title: '风险提示',
-      items: [
-        '市场波动风险：代币价格受市场供需影响',
-        '法律与监管风险：各国监管政策可能变化',
-        '运营风险：度假区运营受多种因素影响',
-        '技术风险：智能合约存在潜在漏洞可能',
-        '流动性风险：二级市场可能出现流动性不足',
-        '不提供本金保障：投资需谨慎评估'
-      ]
-    },
     trustUpgrade: {
       title: '信任升级',
       content: '传统企业通过上市接受监管和公众监督，透明度大幅提高。同理，发行园区代币要求我们公开披露项目规划和财务，让所有持币者都能监督项目进展。区块链技术的不可篡改性确保资金用途和收益分配公开透明。',
       highlight: '"公开上链"的过程将原本私下的信任关系升级为公开的机制信任'
     },
-    disclaimer: '本文件仅供信息披露之用，不构成任何投资建议。请在充分了解风险的基础上做出投资决策。'
   },
   en: {
     back: 'Back to Projects',
@@ -314,23 +302,11 @@ const translations = {
         { name: 'Grenada Tourism Board', role: 'Government Partnership' }
       ]
     },
-    riskDisclaimer: {
-      title: 'Risk Disclosure',
-      items: [
-        'Market volatility: Token price subject to supply/demand',
-        'Legal & regulatory: Policy changes across jurisdictions',
-        'Operational risk: Resort operations affected by various factors',
-        'Technical risk: Potential smart contract vulnerabilities',
-        'Liquidity risk: Secondary market may lack liquidity',
-        'No principal guarantee: Invest at your own risk'
-      ]
-    },
     trustUpgrade: {
       title: 'Trust Upgrade',
       content: 'Traditional companies accept regulation and public supervision through IPO. Similarly, issuing tokens requires public disclosure of planning and finances, allowing all holders to monitor progress. Blockchain immutability ensures transparent fund usage and revenue distribution.',
       highlight: '"On-chain transparency" upgrades private trust to public mechanism trust'
     },
-    disclaimer: 'This document is for informational purposes only and does not constitute investment advice. Please make investment decisions based on full understanding of risks.'
   }
 };
 
@@ -621,26 +597,6 @@ export function GranadaDetailPage({ language, onBack }: GranadaDetailPageProps) 
           </div>
         </div>
 
-        {/* Risk Disclaimer */}
-        <div className="bg-gradient-to-br from-red-600/10 to-orange-600/10 border border-red-600/20 rounded-2xl p-5 mb-6">
-          <div className="flex items-center gap-2 mb-4">
-            <AlertTriangle className="text-red-400" size={20} />
-            <h2 className="text-xl font-bold text-white">{t.riskDisclaimer.title}</h2>
-          </div>
-          <ul className="space-y-2">
-            {t.riskDisclaimer.items.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <span className="text-red-400 mt-1">⚠</span>
-                <span className="text-gray-300 text-sm leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Final Disclaimer */}
-        <div className="text-center text-gray-500 text-xs leading-relaxed mb-6">
-          {t.disclaimer}
-        </div>
 
         {/* CTA */}
         <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-600/20 rounded-2xl p-6 text-center">
