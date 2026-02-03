@@ -63,43 +63,30 @@ export function ContactPage({ language }: ContactPageProps) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
 
-    try {
-      // 记录留言到控制台（在实际项目中，这里会发送到后端API）
-      const messageData = {
-        timestamp: new Date().toISOString(),
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-        language: language
-      };
+    // 构建邮件内容
+    const emailSubject = language === 'zh'
+      ? `TGGO留言 - ${formData.name}`
+      : `TGGO Message - ${formData.name}`;
 
-      console.log('📝 新留言记录:', messageData);
+    const emailBody = language === 'zh'
+      ? `姓名: ${formData.name}%0D%0A邮箱: ${formData.email}%0D%0A%0D%0A留言内容:%0D%0A${formData.message}%0D%0A%0D%0A发送时间: ${new Date().toLocaleString('zh-CN')}`
+      : `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}%0D%0A%0D%0ASent at: ${new Date().toLocaleString('en-US')}`;
 
-      // 模拟API调用延迟
-      await new Promise(resolve => setTimeout(resolve, 1500));
+    // 创建 mailto 链接
+    const mailtoLink = `mailto:turing@tggo.us?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
 
-      // 将留言保存到本地存储
-      const existingMessages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
-      existingMessages.push(messageData);
-      localStorage.setItem('contactMessages', JSON.stringify(existingMessages));
+    // 打开邮件客户端
+    window.location.href = mailtoLink;
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+    // 显示成功提示
+    setSubmitStatus('success');
+    setFormData({ name: '', email: '', message: '' });
 
-      // 3秒后重置状态
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    } catch (error) {
-      console.error('提交留言失败:', error);
-      setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    } finally {
-      setIsSubmitting(false);
-    }
+    // 3秒后重置状态
+    setTimeout(() => setSubmitStatus('idle'), 3000);
   };
 
   return (
