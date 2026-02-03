@@ -309,22 +309,6 @@ export function TermsPage({ language, onBack }: TermsPageProps) {
           })}
         </div>
 
-        {/* Risk Disclaimer */}
-        <div className="bg-gradient-to-br from-red-600/10 to-orange-600/10 border border-red-600/20 rounded-2xl p-6 mt-6">
-          <div className="flex items-center gap-2 mb-3">
-            <AlertTriangle className="text-red-400" size={20} />
-            <h2 className="text-xl font-bold text-white">{t.riskDisclaimer.title}</h2>
-          </div>
-          <p className="text-gray-300 text-sm mb-4">{t.riskDisclaimer.description}</p>
-          <div className="space-y-2">
-            {t.riskDisclaimer.risks.map((risk, index) => (
-              <div key={index} className="flex items-start gap-2">
-                <span className="text-red-400 mt-1">⚠</span>
-                <p className="text-gray-300 text-sm leading-relaxed">{risk}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Limitation of Liability */}
         <div className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl p-5 mt-6">
@@ -360,16 +344,6 @@ export function TermsPage({ language, onBack }: TermsPageProps) {
           <p className="text-gray-300 text-sm leading-relaxed">{t.governing.description}</p>
         </div>
 
-        {/* Contact */}
-        <div className="bg-gradient-to-br from-orange-600/10 to-red-600/10 border border-orange-600/20 rounded-2xl p-5 mt-6">
-          <h2 className="text-xl font-bold text-white mb-2">{t.contact.title}</h2>
-          <p className="text-gray-300 text-sm mb-4">{t.contact.description}</p>
-          <div className="space-y-2">
-            {t.contact.info.map((info, index) => (
-              <p key={index} className="text-gray-300 text-sm">{info}</p>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
