@@ -1,5 +1,5 @@
 import { ArrowLeft, Target, Lightbulb, Users, TrendingUp, Calendar, Award, Shield, Globe, Coins, Zap, CheckCircle, FileText, Lock, DollarSign, PieChart, Building2, AlertTriangle, Play } from 'lucide-react';
-import whitepaperCover from 'figma:asset/7677f630f8a09c1d15c6b0ee0749f126e480da7e.png';
+import whitepaperCover from '../../assets/gnrwhitepaper.jpg';
 import gnrVideo from '../../assets/gnr.mp4';
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
