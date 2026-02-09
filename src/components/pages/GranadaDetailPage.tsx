@@ -21,7 +21,7 @@ const translations = {
       title: '白皮书概览',
       subtitle: '连接现实资产与去中心化金融的桥梁',
       version: '版本 V1.2',
-      issuer: 'Quantum Blockchain Tech Ltd.',
+      issuer: 'Hengsheng Digital Ventures Ltd.',
       assetHolder: '恒升集团（HengSheng Group）'
     },
     coreData: {
@@ -108,7 +108,7 @@ const translations = {
         { label: '主链', value: 'Ethereum (ERC-20)' },
         { label: '跨链', value: 'BSC (BEP-20)' },
         { label: '安全审计', value: 'CertiK / SlowMist' },
-        { label: '财务审计', value: 'PwC' },
+        { label: '财务审计', value: 'BAC' },
         { label: '多签治理', value: 'Timelock ≥48h' },
         { label: '漏洞赏金', value: 'Immunefi' }
       ]
@@ -147,10 +147,10 @@ const translations = {
     partners: {
       title: '团队与合作伙伴',
       list: [
-        { name: 'Quantum Blockchain Tech Ltd.', role: '发行与治理' },
+        { name: 'Hengsheng Digital Ventures Ltd.', role: '发行与治理' },
         { name: '恒升集团', role: '开发与运营' },
         { name: 'CertiK / SlowMist', role: '安全审计' },
-        { name: 'PwC', role: '财务审计' },
+        { name: 'BAC', role: '财务审计' },
         { name: 'Grenada Tourism Board', role: '政府合作' }
       ]
     },
@@ -169,7 +169,7 @@ const translations = {
       title: 'Whitepaper Overview',
       subtitle: 'Bridging Real World Assets and DeFi',
       version: 'Version V1.2',
-      issuer: 'Quantum Blockchain Tech Ltd.',
+      issuer: 'Hengsheng Digital Ventures Ltd.',
       assetHolder: 'HengSheng Group'
     },
     coreData: {
@@ -256,7 +256,7 @@ const translations = {
         { label: 'Main Chain', value: 'Ethereum (ERC-20)' },
         { label: 'Cross-chain', value: 'BSC (BEP-20)' },
         { label: 'Security Audit', value: 'CertiK / SlowMist' },
-        { label: 'Financial Audit', value: 'PwC' },
+        { label: 'Financial Audit', value: 'BAC' },
         { label: 'Multi-sig', value: 'Timelock ≥48h' },
         { label: 'Bug Bounty', value: 'Immunefi' }
       ]
@@ -295,10 +295,10 @@ const translations = {
     partners: {
       title: 'Team & Partners',
       list: [
-        { name: 'Quantum Blockchain Tech Ltd.', role: 'Issuance & Governance' },
+        { name: 'Hengsheng Digital Ventures Ltd.', role: 'Issuance & Governance' },
         { name: 'HengSheng Group', role: 'Development & Operations' },
         { name: 'CertiK / SlowMist', role: 'Security Audit' },
-        { name: 'PwC', role: 'Financial Audit' },
+        { name: 'BAC', role: 'Financial Audit' },
         { name: 'Grenada Tourism Board', role: 'Government Partnership' }
       ]
     },
