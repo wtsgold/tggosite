@@ -40,7 +40,7 @@ const translations = {
       viewDetails: '查看详情',
       projects: [
         {
-          name: '格林纳达国家度假区',
+          name: '格林纳达国家旅游度假区',
           ticker: 'GNR',
           category: '旅游度假',
           location: '格林纳达',
@@ -191,7 +191,7 @@ const translations = {
       viewDetails: 'View Details',
       projects: [
         {
-          name: 'Grenada National Resort',
+          name: 'Grenada National Tourism Resort',
           ticker: 'GNR',
           category: 'Tourism & Resorts',
           location: 'Grenada',

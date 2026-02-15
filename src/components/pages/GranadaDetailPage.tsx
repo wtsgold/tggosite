@@ -70,16 +70,14 @@ const translations = {
     stakingRewards: {
       title: '质押收益（2025-开业）',
       periods: [
-        { duration: '3个月', weight: '1.3', apy: '约6%' },
-        { duration: '6个月', weight: '1.6', apy: '约8%' },
-        { duration: '12个月', weight: '2.0', apy: '约10%' }
+        { duration: '12个月', apy: '约10%，社区奖励' }
       ],
       note: '季度发放、链上可查、以USDT形式发放'
     },
     operatingRevenue: {
       title: '运营分红（营业起至永久）',
       description: '年度运营净利润50%按季度分配',
-      features: ['以USDT形式发放', '所有分红链上公开', '智能合约自动执行']
+      features: ['以USDT形式发放', '所有分红链上公开', '智能合约自动执行', '社区奖励，以USDT形式发放']
     },
     utilities: {
       title: '代币实用性',
@@ -130,6 +128,7 @@ const translations = {
         { time: '2025 Q1', event: '代币智能合约开发' },
         { time: '2025 Q2', event: '安全审计与合规审查' },
         { time: '2025 Q4', event: '代币正式发行' },
+        { time: '2026 Q3', event: '预计2026年8月15日上去中心化交易所Uniswap' },
         { time: '2027 Q4', event: '一期工程完工运营' },
         { time: '2028 Q3', event: '首次运营收益分红' },
         { time: '2028 Q4', event: 'NFT会员与DAO治理' }
@@ -218,16 +217,14 @@ const translations = {
     stakingRewards: {
       title: 'Staking Rewards (2025-Opening)',
       periods: [
-        { duration: '3 Months', weight: '1.3', apy: '~6%' },
-        { duration: '6 Months', weight: '1.6', apy: '~8%' },
-        { duration: '12 Months', weight: '2.0', apy: '~10%' }
+        { duration: '12 Months', apy: '~10%, Community Rewards' }
       ],
       note: 'Quarterly distribution, on-chain verifiable, paid in USDT'
     },
     operatingRevenue: {
       title: 'Operating Dividends (From Opening)',
       description: '50% of annual net profit distributed quarterly',
-      features: ['Paid in USDT', 'All dividends on-chain public', 'Smart contract automation']
+      features: ['Paid in USDT', 'All dividends on-chain public', 'Smart contract automation', 'Community rewards, distributed in USDT']
     },
     utilities: {
       title: 'Token Utilities',
@@ -278,6 +275,7 @@ const translations = {
         { time: '2025 Q1', event: 'Smart contract development' },
         { time: '2025 Q2', event: 'Security audit & compliance' },
         { time: '2025 Q4', event: 'Token launch' },
+        { time: '2026 Q3', event: 'Expected listing on Uniswap (DEX) on August 15, 2026' },
         { time: '2027 Q4', event: 'Phase 1 operation' },
         { time: '2028 Q3', event: 'First revenue distribution' },
         { time: '2028 Q4', event: 'NFT membership & DAO' }
@@ -469,11 +467,10 @@ export function GranadaDetailPage({ language, onBack }: GranadaDetailPageProps) 
           <div className="space-y-3 mb-4">
             {t.stakingRewards.periods.map((period, index) => (
               <div key={index} className="bg-white/5 rounded-lg p-4">
-                <div className="flex justify-between items-center mb-2">
+                <div className="flex justify-between items-center">
                   <span className="text-gray-300 text-sm">{period.duration}</span>
                   <span className="text-green-400 font-bold text-lg">{period.apy}</span>
                 </div>
-                <p className="text-gray-400 text-xs">{language === 'zh' ? '权重' : 'Weight'}: {period.weight}</p>
               </div>
             ))}
           </div>
